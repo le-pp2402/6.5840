@@ -21,3 +21,21 @@ type ExampleReply struct {
 
 // Add your RPC definitions here.
 
+// Ask for more tasks
+type GetTaskRequest struct{}
+
+type GetTaskResponse struct {
+	TaskId        string
+	IsMapWorker   bool
+	InputFileName string
+	NReduce       int
+	BucketId      int
+}
+
+// Tell the coord that task was done
+type MarkTaskDoneRequest struct {
+	TaskId    int64
+	IsMapTask bool
+}
+
+type MarkTaskDoneResponse struct{}
